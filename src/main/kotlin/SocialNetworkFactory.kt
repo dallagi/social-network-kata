@@ -9,7 +9,7 @@ object SocialNetworkFactory {
         readClock: Clock = Clock(Instant::now)
     ): SocialNetwork {
         val messagesRepository = InMemoryMessagesRepository()
-        val readTimeline = ReadTimeline(NMinutesAgoTimeHumanizer(readClock), messagesRepository, console)
+        val readTimeline = ReadTimeline(TimeAgoHumanizer(readClock), messagesRepository, console)
         val postMessage = PostMessage(messagesRepository, writeClock)
 
         return SocialNetwork(listOf(postMessage, readTimeline))

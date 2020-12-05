@@ -2,10 +2,12 @@ package dev.dallagi.socialnetwork
 
 import java.time.Instant
 
-class NMinutesAgoTimeHumanizer(private val clock: Clock) : TimeHumanizer {
+class TimeAgoHumanizer(private val clock: Clock) : TimeHumanizer {
     override fun humanize(time: Instant): String {
         return when (val seconds = secondsFrom(time)) {
-            in NOW -> "now"
+            0L -> "now"
+            1L -> "1 second ago"
+            in SECONDS -> "$seconds seconds ago"
             in ONE_MINUTE -> "1 minute ago"
             else -> "${secondsToMinutes(seconds)} minutes ago"
         }
@@ -18,7 +20,7 @@ class NMinutesAgoTimeHumanizer(private val clock: Clock) : TimeHumanizer {
     private fun secondsToMinutes(seconds: Long) = seconds / 60
 
     companion object {
-        private val NOW = 0..30
-        private val ONE_MINUTE = 31..90
+        private val ONE_MINUTE = 60..90
+        private val SECONDS = 2..59
     }
 }
