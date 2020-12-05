@@ -8,16 +8,13 @@ import org.junit.jupiter.api.Test
 import java.time.Instant
 
 class PersonalTimelineFeature {
-    private val fixedClock = Clock { now }
-    private val console = mockk<Console>(relaxed = true)
-    private val postMessageClock = mockk<Clock>(relaxed = true)
-    private val messagesRepository = InMemoryMessagesRepository()
-    private val readTimeline = ReadTimeline(NMinutesAgoTimeHumanizer(fixedClock), messagesRepository, console)
-    private val postMessage = PostMessage(messagesRepository, postMessageClock)
+    val fixedClock = Clock { now }
 
     @Test
     fun `users can submit messages to personal timelines`() {
-        val socialNetwork = SocialNetwork(listOf(postMessage, readTimeline))
+        val console = mockk<Console>(relaxed = true)
+        val postMessageClock = mockk<Clock>(relaxed = true)
+        val socialNetwork = SocialNetworkFactory.create(console, writeClock = postMessageClock, readClock = fixedClock)
         every { postMessageClock.now() }.returnsMany(fiveMinutesAgo, twoMinutesAgo, oneMinuteAgo)
 
         socialNetwork.send("Alice -> I love the weather today")

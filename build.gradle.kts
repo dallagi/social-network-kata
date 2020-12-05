@@ -27,6 +27,10 @@ tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "11"
 }
 
+val run by tasks.getting(JavaExec::class) {
+    standardInput = System.`in`
+}
+
 application {
-    mainClassName = "MainKt"
+    mainClassName = "dev.dallagi.socialnetwork.MainKt"
 }

@@ -1,3 +1,15 @@
+# How to run
+
+Run the application with
+```
+./gradlew run --console plain
+```
+
+Run all the tests with
+```
+./gradlew test
+```
+
 # Social Networking Kata
 Credits to [Sandro Mancuso](https://twitter.com/sandromancuso) and [Samir Talwar](https://twitter.com/SamirTalwar) for the [original idea](http://monospacedmonologues.com/post/49250842364/the-social-networking-kata).
 
