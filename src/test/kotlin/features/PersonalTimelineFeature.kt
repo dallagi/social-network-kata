@@ -1,3 +1,5 @@
+package features
+
 import dev.dallagi.socialnetwork.*
 import io.mockk.every
 import io.mockk.mockk
