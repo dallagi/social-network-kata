@@ -8,7 +8,7 @@ class PersonalTimelineFeature {
     @Test
     fun `users can submit messages to personal timelines`() {
         val socialNetwork = SocialNetwork(emptyList())
-        val console = mockk<Console>()
+        val console = mockk<Console>(relaxed = true)
 
         socialNetwork.send("Alice -> I love the weather today")
         socialNetwork.send("Bob -> Damn! We lost!")
