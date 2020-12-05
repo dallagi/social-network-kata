@@ -1,7 +1,5 @@
 package dev.dallagi.socialnetwork
 
-import java.time.Instant
-
 class PostMessage(private val messagesRepository: MessagesRepository, private val clock: Clock) : CommandHandler {
     override fun canHandle(command: String): Boolean {
         return " -> " in command
