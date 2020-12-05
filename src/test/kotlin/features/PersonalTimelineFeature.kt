@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 import java.time.Instant
 
 class PersonalTimelineFeature {
-    val fixedClock = Clock { now }
+    private val fixedClock = Clock { now }
 
     @Test
     fun `users can submit messages to personal timelines`() {

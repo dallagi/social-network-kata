@@ -17,7 +17,6 @@ class ReadTimelineTest {
             else -> ""
         }
     }
-    private val fixedClock = Clock { now }
 
     @Test
     fun `can handle "read timeline" commands`() {
@@ -48,7 +47,6 @@ class ReadTimelineTest {
     }
 
     companion object {
-        private val now = Instant.parse("2020-10-10T10:10:00Z")
         private val oneMinuteAgo = Instant.parse("2020-10-10T10:09:00Z")
         private val tenMinutesAgo = Instant.parse("2020-10-10T10:00:00Z")
     }
