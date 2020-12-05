@@ -1,5 +1,5 @@
 package dev.dallagi.socialnetwork
 
-interface Console {
+fun interface Console {
     fun printLine(message: String)
 }
