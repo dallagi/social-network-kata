@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 class PersonalTimelineFeature {
     @Test
     fun `users can submit messages to personal timelines`() {
-        val socialNetwork = SocialNetwork()
+        val socialNetwork = SocialNetwork(emptyList())
         val console = mockk<Console>()
 
         socialNetwork.send("Alice -> I love the weather today")
