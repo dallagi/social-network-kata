@@ -7,7 +7,7 @@ class InMemoryFollowersRepositoryTest {
     fun `by default, users have no followers`() {
         val followersRepository = InMemoryFollowersRepository()
 
-        assertIterableEquals(emptyList<String>(), followersRepository.followersOf("AnyUser"))
+        assertIterableEquals(emptyList<String>(), followersRepository.followedBy("AnyUser"))
     }
 
     @Test
@@ -16,6 +16,6 @@ class InMemoryFollowersRepositoryTest {
 
         followersRepository.addFollower("Follower", "Followee")
 
-        assertIterableEquals(listOf("Follower"), followersRepository.followersOf("Followee"))
+        assertIterableEquals(listOf("Followee"), followersRepository.followedBy("Follower"))
     }
 }

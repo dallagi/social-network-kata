@@ -38,7 +38,7 @@ class ReadWallTest {
     fun `always prints messages for target user`() {
         val messagesForAlice = listOf(Message("Alice", "hi there!", oneMinuteAgo))
         every { messagesRepository.allMessagesOnTimeline("Alice") } returns messagesForAlice
-        every { followersRepository.followersOf(any()) } returns emptyList()
+        every { followersRepository.followedBy(any()) } returns emptyList()
 
         ReadWall(console, messagesRepository, followersRepository, timeHumanizer).handle("Alice wall")
 
@@ -56,9 +56,9 @@ class ReadWallTest {
         )
         every { messagesRepository.allMessagesOnTimeline("Alice") } returns messagesForAlice
         every { messagesRepository.allMessagesOnTimeline("Charlie") } returns messagesForCharlie
-        every { followersRepository.followersOf("Alice") } returns listOf("Charlie")
+        every { followersRepository.followedBy("Alice") } returns listOf("Charlie")
 
-        ReadWall(console, messagesRepository, followersRepository, timeHumanizer).handle("Alice wall")
+        ReadWall(console, messagesRepository, followersRepository, timeHumanizer).handle("Charlie wall")
 
         verifySequence {
             console.printLine("Charlie - hello Charlie! (30 seconds ago)")

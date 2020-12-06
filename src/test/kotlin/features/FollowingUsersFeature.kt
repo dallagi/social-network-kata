@@ -21,7 +21,7 @@ class FollowingUsersFeature {
         socialNetwork.send("Charlie follows Alice")
         socialNetwork.send("NonFollowedUser -> This message won't appear on Charlie's wall")
 
-        socialNetwork.send("Alice wall")
+        socialNetwork.send("Charlie wall")
 
         verifySequence {
             console.printLine("Charlie - I'm in New York today! Anyone wants to have a coffee? (2 seconds ago)")

@@ -10,7 +10,7 @@ class ReadWall(
 
     override fun handle(command: String) {
         val user = userFrom(command)
-        val timelinesToCheck = listOf(user) + followersRepository.followersOf(user)
+        val timelinesToCheck = listOf(user) + followersRepository.followedBy(user)
 
         for (message in allMessagesFor(timelinesToCheck)) {
             console.printLine(format(message))
