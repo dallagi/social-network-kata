@@ -1,6 +1,8 @@
-package features
+package dev.dallagi.socialnetwork.features
 
-import dev.dallagi.socialnetwork.*
+import dev.dallagi.socialnetwork.Clock
+import dev.dallagi.socialnetwork.Console
+import dev.dallagi.socialnetwork.SocialNetworkFactory
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verifySequence

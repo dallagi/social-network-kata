@@ -1,10 +1,9 @@
-import dev.dallagi.socialnetwork.Clock
-import dev.dallagi.socialnetwork.Message
-import dev.dallagi.socialnetwork.MessagesRepository
-import dev.dallagi.socialnetwork.PostMessage
+package dev.dallagi.socialnetwork
+
 import io.mockk.mockk
 import io.mockk.verify
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import java.time.Instant
 

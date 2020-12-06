@@ -1,4 +1,5 @@
-import dev.dallagi.socialnetwork.*
+package dev.dallagi.socialnetwork
+
 import io.mockk.*
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue

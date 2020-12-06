@@ -1,5 +1,5 @@
-import dev.dallagi.socialnetwork.CommandHandler
-import dev.dallagi.socialnetwork.SocialNetwork
+package dev.dallagi.socialnetwork
+
 import io.mockk.Called
 import io.mockk.every
 import io.mockk.mockk

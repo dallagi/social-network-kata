@@ -1,4 +1,5 @@
-import dev.dallagi.socialnetwork.InMemoryFollowersRepository
+package dev.dallagi.socialnetwork
+
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 

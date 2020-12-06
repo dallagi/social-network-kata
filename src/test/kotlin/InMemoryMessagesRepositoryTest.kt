@@ -1,5 +1,5 @@
-import dev.dallagi.socialnetwork.InMemoryMessagesRepository
-import dev.dallagi.socialnetwork.Message
+package dev.dallagi.socialnetwork
+
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.time.Instant

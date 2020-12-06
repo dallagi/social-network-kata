@@ -1,4 +1,5 @@
-import dev.dallagi.socialnetwork.*
+package dev.dallagi.socialnetwork
+
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verifySequence

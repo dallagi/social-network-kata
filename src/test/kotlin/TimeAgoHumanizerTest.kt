@@ -1,6 +1,6 @@
-import dev.dallagi.socialnetwork.Clock
-import dev.dallagi.socialnetwork.TimeAgoHumanizer
-import org.junit.jupiter.api.Assertions.*
+package dev.dallagi.socialnetwork
+
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.time.Instant
 
