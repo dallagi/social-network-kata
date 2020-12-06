@@ -57,7 +57,7 @@ class ReadWallTest {
         )
         every { messagesRepository.allMessagesOnTimeline("Alice") } returns messagesForAlice
         every { messagesRepository.allMessagesOnTimeline("Charlie") } returns messagesForCharlie
-        every { followersRepository.followedBy("Alice") } returns listOf("Charlie")
+        every { followersRepository.followedBy("Charlie") } returns listOf("Alice")
 
         ReadWall(console, messagesRepository, followersRepository, timeHumanizer).handle("Charlie wall")
 
