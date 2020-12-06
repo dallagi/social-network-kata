@@ -11,8 +11,8 @@ class SocialNetworkTest {
     fun `delegates command processing to a command handler that supports that command`() {
         val commandToInvoke = mockk<CommandHandler>(relaxed = true)
         val commandNotToInvoke = mockk<CommandHandler>(relaxed = true)
-        every { commandToInvoke.canHandle("my-command") }.returns(true)
-        every { commandNotToInvoke.canHandle("my-command") }.returns(false)
+        every { commandToInvoke.canHandle("my-command") } returns true
+        every { commandNotToInvoke.canHandle("my-command") } returns false
 
         val socialNetwork = SocialNetwork(listOf(commandToInvoke, commandNotToInvoke))
         socialNetwork.send("my-command")

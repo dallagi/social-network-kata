@@ -14,7 +14,7 @@ class FollowingUsersFeature {
     @Test
     fun `users can subscribe to other users' timelines and view aggregated list of all subscriptions`() {
         val socialNetwork = SocialNetworkFactory.create(console, clock = clock)
-        every { clock.now() }.returnsMany(fiveMinutesAgo, twoSecondsAgo).andThen(now)
+        every { clock.now() }.returnsMany(fiveMinutesAgo, twoSecondsAgo) andThen now
 
         socialNetwork.send("Alice -> I love the weather today")
         socialNetwork.send("Charlie -> I'm in New York today! Anyone wants to have a coffee?")

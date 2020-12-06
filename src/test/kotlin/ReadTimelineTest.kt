@@ -34,9 +34,11 @@ class ReadTimelineTest {
 
     @Test
     fun `prints all messages from a timeline on the console`() {
-        val messages =
-            listOf(Message("User", "a message", tenMinutesAgo), Message("User", "another message", oneMinuteAgo))
-        every { messagesRepository.allMessagesOnTimeline("User") }.returns(messages)
+        val messages = listOf(
+            Message("User", "a message", tenMinutesAgo),
+            Message("User", "another message", oneMinuteAgo)
+        )
+        every { messagesRepository.allMessagesOnTimeline("User") } returns messages
         val readTimeline = ReadTimeline(timeHumanizer, messagesRepository, console)
 
         readTimeline.handle("User")

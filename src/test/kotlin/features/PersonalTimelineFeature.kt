@@ -13,7 +13,7 @@ class PersonalTimelineFeature {
         val console = mockk<Console>(relaxed = true)
         val clock = mockk<Clock>(relaxed = true)
         val socialNetwork = SocialNetworkFactory.create(console, clock)
-        every { clock.now() }.returnsMany(fiveMinutesAgo, twoMinutesAgo, oneMinuteAgo).andThen(now)
+        every { clock.now() }.returnsMany(fiveMinutesAgo, twoMinutesAgo, oneMinuteAgo) andThen now
 
         socialNetwork.send("Alice -> I love the weather today")
         socialNetwork.send("Bob -> Damn! We lost!")
