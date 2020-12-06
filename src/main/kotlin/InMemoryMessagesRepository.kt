@@ -3,8 +3,8 @@ package dev.dallagi.socialnetwork
 class InMemoryMessagesRepository : MessagesRepository {
     private val timelines = mutableMapOf<String, MutableList<Message>>()
 
-    override fun addMessageToTimeline(recipient: String, message: Message) {
-        getTimelineFor(recipient).add(message)
+    override fun addMessage(message: Message) {
+        getTimelineFor(message.recipient).add(message)
     }
 
     override fun allMessagesOnTimeline(user: String): Collection<Message> {

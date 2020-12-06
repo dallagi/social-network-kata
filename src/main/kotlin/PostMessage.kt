@@ -7,7 +7,7 @@ class PostMessage(private val messagesRepository: MessagesRepository, private va
 
     override fun handle(command: String) {
         val (user, messageBody) = parse(command)
-        messagesRepository.addMessageToTimeline(user, Message(messageBody, clock.now()))
+        messagesRepository.addMessage(Message(user, messageBody, clock.now()))
     }
 
     private fun parse(command: String) = command.split(SEPARATOR, limit = 2)

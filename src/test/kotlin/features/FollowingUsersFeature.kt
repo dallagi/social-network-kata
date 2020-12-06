@@ -19,6 +19,7 @@ class FollowingUsersFeature {
         socialNetwork.send("Alice -> I love the weather today")
         socialNetwork.send("Charlie -> I'm in New York today! Anyone wants to have a coffee?")
         socialNetwork.send("Charlie follows Alice")
+        socialNetwork.send("NonFollowedUser -> This message won't appear on Charlie's wall")
 
         socialNetwork.send("Charlie wall")
 

@@ -27,7 +27,7 @@ class PostMessageTest {
         PostMessage(messagesRepository, fixedClock).handle("User -> a message")
 
         verify {
-            messagesRepository.addMessageToTimeline("User", Message("a message", now))
+            messagesRepository.addMessage(Message("User", "a message", now))
         }
     }
 

@@ -11,10 +11,10 @@ class InMemoryMessagesRepositoryTest {
     fun `can post a message and read it`() {
         val messagesRepository = InMemoryMessagesRepository()
 
-        messagesRepository.addMessageToTimeline("Recipient", Message("a message", anInstant))
+        messagesRepository.addMessage(Message("Recipient", "a message", anInstant))
 
         assertIterableEquals(
-            listOf(Message("a message", anInstant)),
+            listOf(Message("Recipient", "a message", anInstant)),
             messagesRepository.allMessagesOnTimeline("Recipient")
         )
     }
@@ -23,11 +23,11 @@ class InMemoryMessagesRepositoryTest {
     fun `can post multiple messages and read them`() {
         val messagesRepository = InMemoryMessagesRepository()
 
-        messagesRepository.addMessageToTimeline("Recipient", Message("a message", anInstant))
-        messagesRepository.addMessageToTimeline("Recipient", Message("another message", anInstant))
+        messagesRepository.addMessage(Message("Recipient", "a message", anInstant))
+        messagesRepository.addMessage(Message("Recipient", "another message", anInstant))
 
         assertIterableEquals(
-            listOf(Message("a message", anInstant), Message("another message", anInstant)),
+            listOf(Message("Recipient", "a message", anInstant), Message("Recipient", "another message", anInstant)),
             messagesRepository.allMessagesOnTimeline("Recipient")
         )
     }
@@ -36,11 +36,11 @@ class InMemoryMessagesRepositoryTest {
     fun `reads only messages posted on the specified timeline`() {
         val messagesRepository = InMemoryMessagesRepository()
 
-        messagesRepository.addMessageToTimeline("Recipient", Message("a message", anInstant))
-        messagesRepository.addMessageToTimeline("SomeoneElse", Message("another message", anInstant))
+        messagesRepository.addMessage(Message("Recipient", "a message", anInstant))
+        messagesRepository.addMessage(Message("SomeoneElse", "another message", anInstant))
 
         assertIterableEquals(
-            listOf(Message("a message", anInstant)),
+            listOf(Message("Recipient", "a message", anInstant)),
             messagesRepository.allMessagesOnTimeline("Recipient")
         )
     }
