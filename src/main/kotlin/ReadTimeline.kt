@@ -20,5 +20,5 @@ class ReadTimeline(
     private fun messagesForUserFromNewestToOldest(user: String) =
         messagesRepository
             .allMessagesOnTimeline(user)
-            .sortedByDescending { it.time }
+            .sortedByDescending(Message::time)
 }

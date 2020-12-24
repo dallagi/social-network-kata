@@ -19,8 +19,8 @@ class ReadWall(
 
     private fun allMessagesFor(timelinesToCheck: Collection<String>) =
         timelinesToCheck
-            .flatMap { timeline -> messagesRepository.allMessagesOnTimeline(timeline) }
-            .sortedByDescending { message -> message.time }
+            .flatMap(messagesRepository::allMessagesOnTimeline)
+            .sortedByDescending(Message::time)
 
     private fun userFrom(command: String) = command.removeSuffix(SUFFIX)
 
@@ -30,5 +30,4 @@ class ReadWall(
     companion object {
         private const val SUFFIX = " wall"
     }
-
 }
